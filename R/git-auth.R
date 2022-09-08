@@ -62,7 +62,7 @@ gitcreds_set <<- function(url = "https://github.com") {
     gitcreds_set_new(url)
   }
 
-  msg("-> Removing credetials from cache...")
+  msg("-> Removing credentials from cache...")
   gitcreds_delete_cache(gitcreds_cache_envvar(url))
 
   msg("-> Done.")
@@ -175,7 +175,7 @@ gitcreds_delete <<- function(url = "https://github.com") {
   msg("-> Removing current credentials...")
   gitcreds_reject(current)
 
-  msg("-> Removing credetials from cache...")
+  msg("-> Removing credentials from cache...")
   gitcreds_delete_cache(gitcreds_cache_envvar(url))
 
   msg("-> Done.")
@@ -422,7 +422,7 @@ ack <- function(url, current, what = "Replace") {
   msg(paste0(format(current, header = FALSE), collapse = "\n"), "\n")
 
   choices <- c(
-    "Keep these credentials",
+    "Abort update with error, and keep the existing credentials",
     paste(what, "these credentials"),
     if (has_password(current)) "See the password / token"
   )
